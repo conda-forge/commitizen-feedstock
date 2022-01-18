@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "2.20.3" %}
+{% set version = "2.20.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 86d8ac4db7a6b48f3d5799b070287ba4bb27726c0a71d1cbd7f62b48866e5be7
+  sha256: 33fe190935412011a9e9e0a3fc80f4b874bc250461a9374b1169f2d86cb81901
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - cz = commitizen.cli:main
     - git-cz = commitizen.cli:main
@@ -24,16 +24,17 @@ requirements:
     - pip
   run:
     - python >=3.6
-    - questionary
-    - decli
-    - colorama
-    - termcolor
-    - packaging
-    - tomlkit
-    - jinja2
-    - pyyaml
-    - argcomplete
+    - questionary <2.0.0,>=1.4.0
+    - decli <0.6.0,>=0.5.2
+    - colorama <0.5.0,>=0.4.1
+    - termcolor <2.0,>=1.1
+    - packaging <22,>=19
+    - tomlkit <1.0.0,>=0.5.3
+    - jinja2 >=2.10.3
+    - pyyaml >=3.08
+    - argcomplete <2.0.0,>=1.12.1
     - typing-extensions
+    # - typing_extensions <5.0.0,>=4.0.1
 
 test:
   imports:
@@ -47,7 +48,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Tool to define a standard way of committing'
+  summary: Tool to define a standard way of committing
   dev_url: https://github.com/commitizen-tools/commitizen
 
 extra:
