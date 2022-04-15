@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "2.23.0" %}
+{% set version = "2.24.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5685d44ac235e3da0a02592e11c92aeebcf4864e059a6f5a59382207264fb671
+  sha256: c867c26a394b255a93a8a225dae793dd361b25160be39015d2aa75d730728295
 
 build:
   noarch: python
@@ -34,6 +34,7 @@ requirements:
     - pyyaml >=3.08
     - argcomplete <2.0.0,>=1.12.1
     - typing-extensions
+    # - typing_extensions <5.0.0,>=4.0.1
     # - typing_extensions <5.0.0,>=4.0.1
     # - typing_extensions <5.0.0,>=4.0.1
     # - typing_extensions <5.0.0,>=4.0.1
