@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "3.1.1" %}
+{% set version = "3.29.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/commitizen-{{ version }}.tar.gz
-  sha256: 337d721555b66f803d60a0b0bafe0d3cf68a584b1f85ef0c43c45d279dc6737b
+  sha256: b9a56190f4f3b20c73600e5ba448c7b81e0e6f87be3092aec1db4de75bf0fa91
 
 build:
   entry_points:
     - cz = commitizen.cli:main
     - git-cz = commitizen.cli:main
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
@@ -23,19 +23,19 @@ requirements:
     - poetry-core >=1.0.0
     - pip
   run:
-    - python >=3.7,<4.0
-    - questionary >=1.4.0,<2.0.0
-    - decli >=0.5.2,<0.6.0
+    - python >=3.8
+    - questionary >=2.0.0,<3.0.0
+    - decli >=0.6.0,<0.7.0
     - colorama >=0.4.1,<0.5.0
     - termcolor >=1.1,<3
     - packaging >=19
     - tomlkit >=0.5.3,<1.0.0
     - jinja2 >=2.10.3
     - pyyaml >=3.08
-    - argcomplete >=1.12.1,<3.1
+    - argcomplete >=1.12.1,<3.6
     - typing_extensions >=4.0.1,<5.0.0
     - charset-normalizer >=2.1.0,<4
-    - importlib-metadata >=4.13,<5
+    - importlib-metadata >=8.0.0,<9
 
 test:
   imports:
