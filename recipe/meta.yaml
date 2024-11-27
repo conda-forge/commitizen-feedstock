@@ -1,5 +1,6 @@
 {% set name = "commitizen" %}
 {% set version = "4.0.0" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -15,15 +16,15 @@ build:
     - git-cz = commitizen.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - poetry-core >=1.0.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - questionary <3.0,>=2.0
     - decli <0.7.0,>=0.6.0
     - colorama <0.5.0,>=0.4.1
@@ -49,6 +50,7 @@ test:
     - cz --help
     - git-cz --help
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
