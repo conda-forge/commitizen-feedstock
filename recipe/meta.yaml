@@ -14,7 +14,6 @@ build:
   entry_points:
     - cz = commitizen.cli:main
     - git-cz = commitizen.cli:main
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
 
@@ -34,9 +33,9 @@ requirements:
     - jinja2 >=2.10.3
     - pyyaml >=3.08
     - argcomplete >=1.12.1,<3.7
-    - typing_extensions >=4.0.1,<5.0.0
+    - typing_extensions >=4.0.1,<5.0.0  # [py<311]
     - charset-normalizer >=2.1.0,<4
-    - importlib-metadata >=8.0.0,<9
+    - importlib-metadata >=8.0.0,<9  # [py<310]
 
 test:
   imports:
