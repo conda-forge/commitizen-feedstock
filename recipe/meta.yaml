@@ -1,6 +1,5 @@
 {% set name = "commitizen" %}
 {% set version = "4.6.3" %}
-{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -14,12 +13,13 @@ build:
   entry_points:
     - cz = commitizen.cli:main
     - git-cz = commitizen.cli:main
+  skip: True  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 1
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - poetry-core >=1.0.0
     - pip
   run:
