@@ -1,6 +1,5 @@
 {% set name = "commitizen" %}
 {% set version = "4.6.3" %}
-{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
@@ -14,46 +13,29 @@ build:
   entry_points:
     - cz = commitizen.cli:main
     - git-cz = commitizen.cli:main
-  noarch: python
+  skip: True  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - poetry-core >=1.0.0
     - pip
   run:
-    - python >={{ python_min }}
-    - questionary <3.0,>=2.0
-    - decli <1.0,>=0.6.0
-    - colorama <1.0,>=0.4.1
-    - termcolor <3,>=1.1
+    - python
+    - questionary >=2.0,<3.0
+    - decli >=0.6.0,<1.0
+    - colorama >=0.4.1,<1.0
+    - termcolor >=1.1,<3
     - packaging >=19
-    - tomlkit <1.0.0,>=0.5.3
+    - tomlkit >=0.5.3,<1.0.0
     - jinja2 >=2.10.3
     - pyyaml >=3.08
-    - argcomplete <3.7,>=1.12.1
-    - typing_extensions <5.0.0,>=4.0.1
-    - charset-normalizer <4,>=2.1.0
-    - importlib-metadata >=8.0.0,<9
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
+    - argcomplete >=1.12.1,<3.7
+    - typing_extensions >=4.0.1,<5.0.0  # [py<311]
+    - charset-normalizer >=2.1.0,<4
+    - importlib-metadata >=8.0.0,<9  # [py<310]
 
 test:
   imports:
@@ -63,7 +45,7 @@ test:
     - cz --help
     - git-cz --help
   requires:
-    - python {{ python_min }}
+    - python
     - pip
 
 about:
