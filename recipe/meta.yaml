@@ -16,7 +16,7 @@ build:
     - git-cz = commitizen.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -34,26 +34,9 @@ requirements:
     - jinja2 >=2.10.3
     - pyyaml >=3.08
     - argcomplete <3.7,>=1.12.1
-    - typing_extensions <5.0.0,>=4.0.1
+    - typing_extensions <5.0.0,>=4.0.1  # [py<311]
     - charset-normalizer <4,>=2.1.0
-    - importlib-metadata >=8.0.0,<9
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
-    # - importlib_metadata <9,>=8.0.0
+    - importlib-metadata >=8.0.0,<9  # [py<310]
 
 test:
   imports:
