@@ -23,7 +23,7 @@ requirements:
     - poetry-core >=1.0.0
     - pip
   run:
-    - python >={{ python_min }}
+    - python
     - questionary >=2.0,<3.0
     - decli >=0.6.0,<1.0
     - colorama >=0.4.1,<1.0
