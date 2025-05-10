@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "4.6.3" %}
+{% set version = "4.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,15 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/commitizen-{{ version }}.tar.gz
-  sha256: c97d48a49d84bea27496737e43fdea5ccc87e1e2d288b0a071bf97292548ffd9
+  sha256: ef95f2ef354b438dce7c6164e5d47d10cc377df666ee65a116bcfcb146bb0c0a
 
 build:
   entry_points:
     - cz = commitizen.cli:main
     - git-cz = commitizen.cli:main
-  skip: True  # [py<39]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -27,18 +27,19 @@ requirements:
     - pip
   run:
     - python
-    - questionary >=2.0,<3.0
-    - decli >=0.6.0,<1.0
-    - colorama >=0.4.1,<1.0
-    - termcolor >=1.1,<3
+    - questionary <3.0,>=2.0
+    - decli <1.0,>=0.6.0
+    - colorama <1.0,>=0.4.1
+    - termcolor <3,>=1.1
     - packaging >=19
-    - tomlkit >=0.5.3,<1.0.0
+    - tomlkit <1.0.0,>=0.5.3
     - jinja2 >=2.10.3
     - pyyaml >=3.08
-    - argcomplete >=1.12.1,<3.7
-    - typing_extensions >=4.0.1,<5.0.0  # [py<311]
-    - charset-normalizer >=2.1.0,<4
+    - argcomplete <3.7,>=1.12.1
+    - typing_extensions <5.0.0,>=4.0.1
+    - charset-normalizer <4,>=2.1.0
     - importlib-metadata >=8.0.0,<9  # [py<310]
+    # - importlib_metadata <9,>=8.0.0
 
 test:
   imports:
