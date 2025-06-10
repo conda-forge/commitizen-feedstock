@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "4.8.2" %}
+{% set version = "4.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/commitizen-{{ version }}.tar.gz
-  sha256: 4fc73126c7300f715f11b85242550677722c57767b579100e869ccd45143e2c5
+  sha256: 303ebdc271217aadbb6a73a015612121291d180c8cdd05b5251c7923d4a14195
 
 build:
   entry_points:
@@ -30,7 +30,7 @@ requirements:
     - questionary <3.0,>=2.0
     - decli <1.0,>=0.6.0
     - colorama <1.0,>=0.4.1
-    - termcolor <3,>=1.1
+    - termcolor <4.0.0,>=1.1.0
     - packaging >=19
     - tomlkit <1.0.0,>=0.5.3
     - jinja2 >=2.10.3
@@ -39,6 +39,7 @@ requirements:
     - typing_extensions <5.0.0,>=4.0.1
     - charset-normalizer <4,>=2.1.0
     - importlib_metadata <9,>=8.0.0
+    # - importlib-metadata <9.0.0,>=8.0.0
 
 test:
   imports:
