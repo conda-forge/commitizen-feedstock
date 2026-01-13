@@ -23,7 +23,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - python
-    - poetry-core >=1.0.0
+    - uv-build <0.10.0,>=0.9.17
     - pip
   run:
     - python
@@ -35,13 +35,12 @@ requirements:
     - packaging >=19
     - tomlkit <1.0.0,>=0.8.0
     - jinja2 >=2.10.3
-    - pyyaml >=3.8
+    - pyyaml >=3.08
     - argcomplete <3.7,>=1.12.1
-    - typing_extensions <5.0.0,>=4.0.1
+    - typing_extensions <5.0.0,>=4.0.1 # [py<311]
     - charset-normalizer <4,>=2.1.0
     - deprecated <2,>=1.2.13
-    - importlib-metadata <8.7.0,>=8.0.0
-    # - prompt-toolkit !=3.0.52
+    - importlib-metadata <8.7.0,>=8.0.0 # [py<310]
 
 test:
   imports:
