@@ -37,10 +37,10 @@ requirements:
     - jinja2 >=2.10.3
     - pyyaml >=3.08
     - argcomplete <3.7,>=1.12.1
-    - typing_extensions <5.0.0,>=4.0.1 # [py<311]
+    - typing_extensions <5.0.0,>=4.0.1  # [py<311]
     - charset-normalizer <4,>=2.1.0
     - deprecated <2,>=1.2.13
-    - importlib-metadata <8.7.0,>=8.0.0 # [py<310]
+    - importlib-metadata <8.7.0,>=8.0.0  # [py<310]
 
 test:
   imports:
