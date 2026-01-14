@@ -21,10 +21,10 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-  host:
-    - python
     - uv-build <0.10.0,>=0.9.17
     - pip
+  host:
+    - python
   run:
     - python
     - questionary <3.0,>=2.0
