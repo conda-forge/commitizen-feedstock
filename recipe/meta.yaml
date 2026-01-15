@@ -25,6 +25,7 @@ requirements:
     - pip
   host:
     - python
+    - uv-build <0.10.0,>=0.9.17
     - pip
   run:
     - python
