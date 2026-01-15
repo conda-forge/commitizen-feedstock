@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "4.11.0" %}
+{% set version = "4.11.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/commitizen-{{ version }}.tar.gz
-  sha256: d311297a0165ef9f30e0877e04608b786d5fd69760f32245fbf1c21e793e91df
+  sha256: b96a4ab7d9ddbd13135004ca63d37e77cce4ad645b7f661a40522edf9caac641
 
 build:
   entry_points:
@@ -21,9 +21,11 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - uv-build <0.10.0,>=0.9.17
+    - pip
   host:
     - python
-    - poetry-core >=1.0.0
+    - uv-build <0.10.0,>=0.9.17
     - pip
   run:
     - python
@@ -37,10 +39,10 @@ requirements:
     - jinja2 >=2.10.3
     - pyyaml >=3.08
     - argcomplete <3.7,>=1.12.1
-    - typing_extensions <5.0.0,>=4.0.1
+    - typing_extensions <5.0.0,>=4.0.1  # [py<311]
     - charset-normalizer <4,>=2.1.0
     - deprecated <2,>=1.2.13
-    - importlib-metadata <8.7.0,>=8.0.0
+    - importlib-metadata <8.7.0,>=8.0.0  # [py<310]
 
 test:
   imports:
