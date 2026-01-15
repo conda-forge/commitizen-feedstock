@@ -25,6 +25,7 @@ requirements:
     - pip
   host:
     - python
+    - pip
   run:
     - python
     - questionary <3.0,>=2.0
