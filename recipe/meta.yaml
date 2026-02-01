@@ -15,7 +15,7 @@ build:
     - git-cz = commitizen.cli:main
   skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -30,7 +30,7 @@ requirements:
   run:
     - python
     - questionary <3.0,>=2.0
-    - prompt_toolkit !=3.0.52
+    - prompt-toolkit !=3.0.52
     - decli <1.0,>=0.6.0
     - colorama <1.0,>=0.4.1
     - termcolor <4.0.0,>=1.1.0
@@ -39,14 +39,10 @@ requirements:
     - jinja2 >=2.10.3
     - pyyaml >=3.8
     - argcomplete <3.7,>=1.12.1
-    - typing_extensions <5.0.0,>=4.0.1
+    - typing_extensions <5.0.0,>=4.0.1  # [py<311]
     - charset-normalizer <4,>=2.1.0
     - deprecated <2,>=1.2.13
-    - importlib-metadata <8.7.0,>=8.0.0
-    # - prompt-toolkit !=3.0.52
-    # - prompt-toolkit !=3.0.52
-    # - prompt-toolkit !=3.0.52
-    # - prompt-toolkit !=3.0.52
+    - importlib-metadata <8.7.0,>=8.0.0  # [py<310]
 
 test:
   imports:
