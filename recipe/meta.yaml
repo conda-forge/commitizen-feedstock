@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "4.13.0" %}
+{% set version = "4.13.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/commitizen-{{ version }}.tar.gz
-  sha256: 4d6c90c1e43d83a71b396ca6e65ef3d2e62bfc1961ad3ae7cd8a257478243455
+  sha256: 170a1bb2597b9416371ac9589078da39c2df2938d704c219b1e6c51e22845d16
 
 build:
   entry_points:
@@ -15,7 +15,7 @@ build:
     - git-cz = commitizen.cli:main
   skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -39,10 +39,10 @@ requirements:
     - jinja2 >=2.10.3
     - pyyaml >=3.8
     - argcomplete <3.7,>=1.12.1
-    - typing_extensions <5.0.0,>=4.0.1  # [py<311]
+    - typing_extensions <5.0.0,>=4.0.1
     - charset-normalizer <4,>=2.1.0
     - deprecated <2,>=1.2.13
-    - importlib-metadata <8.7.0,>=8.0.0  # [py<310]
+    - importlib-metadata <8.7.0,>=8.0.0
 
 test:
   imports:
