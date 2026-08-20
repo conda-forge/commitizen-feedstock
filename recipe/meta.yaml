@@ -1,5 +1,5 @@
 {% set name = "commitizen" %}
-{% set version = "4.17.1" %}
+{% set version = "4.18.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/commitizen-{{ version }}.tar.gz
-  sha256: 4a7c3bfc10e90e48cb58ac5614aed33cda0ca9d3d8eabda462110a521437b745
+  sha256: 9fab436e99420c97ee020bfeea17fe29903fb320a9cdd6e30c2c63bfbac4cb3b
 
 build:
   entry_points:
